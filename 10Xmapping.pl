@@ -109,7 +109,7 @@ foreach my $l (`cat $f_maf`)
 					for(my $i=0;$i<scalar @intstr;$i+=2)
 					{
 					### junction ##
-					#print $intstr[$i],"\t",$intstr[$i+1],"\n";
+				#	print $intstr[$i],"\t",$intstr[$i+1],"\n";
 
 				 	if($intstr[$i+1] eq "N") 
 					{ 
@@ -221,10 +221,10 @@ foreach my $l (`cat $f_maf`)
                      if($intstr[$i+1] eq "D") { $find_ref=0; last; }
                     }
                 } ## elseif insertion 
-				if($id=~/\/2$/ || ($flag & 0x80)) { $rid=$id; $rid=~s/\/2$//g; $rid.="\/2";  }
-				if($id=~/\/1$/ || ($flag & 0x40)) { $rid=$id; $rid=~s/\/1$//g; $rid.="\/1"; } 
-				if($find_ref==1) { $count_read_ref{$rid}=$t; }
-				if($find_var==1) { $count_read_var{$rid}=$t; }		 
+				#if($id=~/\/2$/ || ($flag & 0x80)) { $rid=$id; $rid=~s/\/2$//g; $rid.="\/2";  }
+				#if($id=~/\/1$/ || ($flag & 0x40)) { $rid=$id; $rid=~s/\/1$//g; $rid.="\/1"; } 
+				if($find_ref==1) { $count_read_ref{$id}=$t; }
+				if($find_var==1) { $count_read_var{$id}=$t; }		 
 					}	
 			
 		
@@ -232,13 +232,13 @@ foreach my $l (`cat $f_maf`)
 			print OUT $chr,"\t",$pos,"\t",$ref,"\t",$var,"\t",$n_key_ref,"\t","Ref-Support","\n"; 
 			foreach my $rr (sort keys %count_read_ref)
 				{
-					print OUT $rr,"\t", $count_read_ref{$rr},"\n";
+					print OUT $count_read_ref{$rr},"\n";
 				}
 			my $n_key_var=keys %count_read_var;
                         print OUT $chr,"\t",$pos,"\t",$ref,"\t",$var,"\t",$n_key_var,"\t","Var-Support","\n";
                         foreach my $rr (sort keys %count_read_var)
                                 {
-                                        print OUT $rr,"\t",$count_read_var{$rr},"\n";
+                                        print OUT $count_read_var{$rr},"\n";
                                 }
 		} ## if f_bam ##
 		} ## for maf ##
