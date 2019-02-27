@@ -4,13 +4,14 @@ Song Cao
 
 scao@wustl.edu
 
-mapping reference allele and variant allele to reads in scRNA-seq bam
+mapping reference allele and variant allele to 10X barcodes from an input of scRNA-seq bam and the unique 10X barcode corresponds to each individual cell
 
 usage: 
 
 step 1: extracting reads contains the reference allele and variant allele of a somatic variant
 
 perl 10Xmapping.pl --mapq --bam --maf --out
+
 
 mapq:  the mapping quality; Default 0
 bam: the scRNA-seq bam path
