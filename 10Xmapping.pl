@@ -14,14 +14,14 @@ use Getopt::Long;
 (my $usage = <<OUT) =~ s/\t+//g;
 perl 10Xmapping.pl --mapq --bam --maf --out
 
-mapq: mapping quality: default, 20 
+mapq: mapping quality: default, 0 
 bam: input bam 
 maf: input maf
 out: output
 
 OUT
 
-my $p_mapq=20; 
+my $p_mapq=0; 
 my $f_bam=""; 
 my $f_maf=""; 
 my $f_out=""; 
